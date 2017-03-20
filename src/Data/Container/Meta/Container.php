@@ -63,6 +63,16 @@ trait Container {
 		$this->_meta = $meta;
 		return $this;
 	}
+
+
+	/**
+	 * Fetch current meta data.
+	 * 
+	 * @return array
+	 */
+	public function getMeta() {
+		return $this->_meta;
+	}
 	
 	/* ------------------------------------ Class Methods END ------------------------------------------ */
 }

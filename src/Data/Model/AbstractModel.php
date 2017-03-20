@@ -88,7 +88,7 @@ abstract class AbstractModel implements \JsonSerializable {
 		}
 
 		// add meta to DTO (only if it is not empty)
-		is_array($this->_meta) && count($this->_meta) and $result = array_merge($result, $this->_meta);
+		is_array($this->getMeta()) && count($this->getMeta()) and $result = array_merge($result, ['_meta' => $this->getMeta()]);
 
 		// conclude
 		return $result;
