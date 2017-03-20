@@ -1,0 +1,13 @@
+{
+	"name": "maleficarum/data",
+	"description": "Maleficarum data component.",
+	"license": "proprietary",
+	"require": {
+		"php": ">=7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Maleficarum\\Data\\": "src/Data/"
+		}
+	}
+}
