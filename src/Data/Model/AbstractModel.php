@@ -39,7 +39,7 @@ abstract class AbstractModel implements \JsonSerializable {
 		}
 
 		// merge meta if any is available
-		array_key_exists('_meta', $data) && is_array($data['_meta']) and $this->setMeta($data['meta']);
+		array_key_exists('_meta', $data) && is_array($data['_meta']) and $this->setMeta($data['_meta']);
 
 		// conclude
 		return $this;
