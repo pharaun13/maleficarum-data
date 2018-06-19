@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Data component. It carries data structures used by maleficarum projects. This only defines generic structures - no storage dependencies.
 
+## [3.0.0] - 2018-06-19
+### Changed
+- Add persistable model
+
 ## [2.0.0] - 2017-08-01
 ### Changed
 - Make use of nullable types provided in PHP 7.1 (http://php.net/manual/en/migration71.new-features.php)
