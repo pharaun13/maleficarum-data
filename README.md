@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Data component. It carries data structures used by maleficarum projects. This only defines generic structures - no storage dependencies.
 
+## [2.2.0] - 2018-07-13
+### Changed
+- Add persistable collection
+
 ## [2.1.0] - 2018-06-19
 ### Changed
 - Add persistable model
