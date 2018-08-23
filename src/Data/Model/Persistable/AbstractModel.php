@@ -8,34 +8,6 @@ namespace Maleficarum\Data\Model\Persistable;
 
 abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
     /**
-     * Persist data stored in this model as a new storage entry.
-     *
-     * @return \Maleficarum\Data\Model\Persistable\AbstractModel|$this enables method chaining
-     */
-    abstract public function create(): \Maleficarum\Data\Model\Persistable\AbstractModel;
-
-    /**
-     * Refresh this model with current data from the storage
-     *
-     * @return \Maleficarum\Data\Model\Persistable\AbstractModel|$this enables method chaining
-     */
-    abstract public function read(): \Maleficarum\Data\Model\Persistable\AbstractModel;
-
-    /**
-     * Update storage entry with data currently stored in this model.
-     *
-     * @return \Maleficarum\Data\Model\Persistable\AbstractModel|$this enables method chaining
-     */
-    abstract public function update(): \Maleficarum\Data\Model\Persistable\AbstractModel;
-
-    /**
-     * Delete an entry from the storage based on ID data stored in this model
-     *
-     * @return \Maleficarum\Data\Model\Persistable\AbstractModel|$this enables method chaining
-     */
-    abstract public function delete(): \Maleficarum\Data\Model\Persistable\AbstractModel;
-
-    /**
      * Validate data stored in this model to check if it can be persisted in storage.
      *
      * @param bool $clear
@@ -57,4 +29,13 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
      * @return string
      */
     abstract protected function getModelPrefix(): string;
+    
+    /**
+     * Fetch the name of the grouping used inside the storage enginge. IE:
+     *  - for RDBMS it's the table name
+     *  - for Redis it's the prefix that will be added to the key to group entities together
+     * 
+     * @return string
+     */
+    abstract protected function getStorageGroup(): string;
 }
