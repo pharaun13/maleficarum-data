@@ -60,7 +60,7 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
      *
      * @return string
      */
-    abstract protected function getModelPrefix(): string;
+    abstract public function getModelPrefix(): string;
     
     /**
      * Fetch the name of the grouping used inside the storage enginge. IE:
@@ -69,7 +69,7 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
      * 
      * @return string
      */
-    abstract protected function getStorageGroup(): string;
+    abstract public function getStorageGroup(): string;
     
     /* ------------------------------------ Abstract methods END --------------------------------------- */
 }
