@@ -7,6 +7,19 @@ namespace Maleficarum\Data\Collection\Persistable;
  * This class sets up basic model functionality common to all maleficarum persistable collections.
  */
 abstract class AbstractCollection extends \Maleficarum\Data\Collection\AbstractCollection {
+    /* ------------------------------------ Class Methods START ---------------------------------------- */
+
+    /**
+     * @see \Maleficarum\Data\Collection\AbstractCollection::populate()
+     */
+    public function populate(array $data = []): \Maleficarum\Data\Collection\AbstractCollection {
+        $this->data = $data;
+
+        return $this;
+    }
+    
+    /* ------------------------------------ Class Methods END ------------------------------------------ */
+    
     /* ------------------------------------ Abstract methods START ------------------------------------- */
 
     /**
@@ -24,7 +37,7 @@ abstract class AbstractCollection extends \Maleficarum\Data\Collection\AbstractC
     abstract public function getModelPrefix(): string;
 
     /**
-     * Fetch the name of the grouping used inside the storage enginge. IE:
+     * Fetch the name of the grouping used inside the storage engine. IE:
      *  - for RDBMS it's the table name
      *  - for Redis it's the prefix that will be added to the key to group entities together
      *
