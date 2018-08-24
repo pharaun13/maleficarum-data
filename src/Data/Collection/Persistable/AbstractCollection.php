@@ -7,19 +7,7 @@ namespace Maleficarum\Data\Collection\Persistable;
  * This class sets up basic model functionality common to all maleficarum persistable collections.
  */
 abstract class AbstractCollection extends \Maleficarum\Data\Collection\AbstractCollection {
-    /**
-     * Insert all entries in this collection to it's storage.
-     *
-     * @return \Maleficarum\Data\Collection\Persistable\AbstractCollection|$this enables method chaining
-     */
-    abstract public function insertAll(): \Maleficarum\Data\Collection\Persistable\AbstractCollection;
-
-    /**
-     * Delete all entries in this collection from it's storage.
-     *
-     * @return \Maleficarum\Data\Collection\Persistable\AbstractCollection|$this enables method chaining
-     */
-    abstract public function deleteAll(): \Maleficarum\Data\Collection\Persistable\AbstractCollection;
+    /* ------------------------------------ Abstract methods START ------------------------------------- */
 
     /**
      * Fetch the name of current shard.
@@ -29,38 +17,20 @@ abstract class AbstractCollection extends \Maleficarum\Data\Collection\AbstractC
     abstract public function getShardRoute(): string;
 
     /**
-     * Fetch the name of main ID column - should return null on collections with no or multi-column primary keys.
+     * Fetch the prefix used as a prefix for database column property names.
      *
-     * @return null|string
+     * @return string
      */
-    abstract protected function getIdColumn(): ?string;
+    abstract public function getModelPrefix(): string;
 
     /**
-     * Iterate over all current data entries and perform any data formatting necessary. This method should be
-     * overloaded in any inheriting collection object that requires any specific data decoding such as JSON
-     * de-serialization or date formatting.
+     * Fetch the name of the grouping used inside the storage enginge. IE:
+     *  - for RDBMS it's the table name
+     *  - for Redis it's the prefix that will be added to the key to group entities together
      *
-     * @return \Maleficarum\Data\Collection\Persistable\AbstractCollection|$this
+     * @return string
      */
-    protected function format(): \Maleficarum\Data\Collection\Persistable\AbstractCollection {
-        return $this;
-    }
+    abstract public function getStorageGroup(): string;
 
-    /**
-     * Fetch current data set as a prepared set used by modification methods (insertAll(), deleteAll()).
-     * This method should be overridden in collections that need to behave differently than using a 1:1 mapping of the
-     * main data container.
-     *
-     * @param string $mode
-     *
-     * @return array
-     * @throws \InvalidArgumentException
-     */
-    protected function prepareElements(string $mode): array {
-        if (!\in_array($mode, ['INSERT', 'DELETE'], true)) {
-            $this->respondToInvalidArgument('Incorrect preparation mode. \%s::prepareElements()');
-        }
-
-        return $this->data;
-    }
+    /* ------------------------------------ Abstract methods END --------------------------------------- */
 }
