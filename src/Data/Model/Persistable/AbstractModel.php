@@ -7,6 +7,38 @@ declare(strict_types=1);
 namespace Maleficarum\Data\Model\Persistable;
 
 abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
+    /* ------------------------------------ Data\AbstractModel methods START --------------------------- */
+
+    /**
+     * @see \Maleficarum\Data\Model\AbstractModel::getId()
+     */
+    public function getId() {
+        $method = 'get' . ucfirst($this->getModelPrefix()) . 'Id';
+        if (!method_exists($this, $method)) {
+            throw new \RuntimeException(sprintf('Invalid model structure - getId() method could not be forwarded properly. %s::getId()', static::class));
+        }
+        
+        return $this->$method();
+    }
+
+    /**
+     * @see \Maleficarum\Data\Model\AbstractModel::setId()
+     */
+    public function setId($id): \Maleficarum\Data\Model\AbstractModel {
+        $method = 'set' . ucfirst($this->getModelPrefix()) . 'Id';
+        if (!method_exists($this, $method)) {
+            throw new \RuntimeException(sprintf('Invalid model structure - setId() method could not be forwarded properly. %s::getId()', static::class));
+        }
+        
+        $this->$method($id);
+
+        return $this;
+    }
+
+    /* ------------------------------------ Data\AbstractModel methods END ----------------------------- */
+    
+    /* ------------------------------------ Abstract methods START ------------------------------------- */
+    
     /**
      * Validate data stored in this model to check if it can be persisted in storage.
      *
@@ -38,4 +70,6 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
      * @return string
      */
     abstract protected function getStorageGroup(): string;
+    
+    /* ------------------------------------ Abstract methods END --------------------------------------- */
 }
