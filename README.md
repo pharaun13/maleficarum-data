@@ -1,10 +1,6 @@
 # Change Log
 This is the Maleficarum Data component. It carries data structures used by maleficarum projects. This only defines generic structures - no storage dependencies.
 
-## [3.1.0] - 2018-08-30
-### Changed
-- Persistable collection now MUST have a method responsible for data validation.
-
 ## [3.0.0] - 2018-08-23
 ### Changed
 - Entire component modified to work with the new Maleficarum\Storage component instead of the now deprecated Maleficarum\Database.
