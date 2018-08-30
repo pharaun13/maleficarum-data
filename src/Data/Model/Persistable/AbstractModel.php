@@ -43,7 +43,6 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
      * Validate data stored in this model to check if it can be persisted in storage.
      *
      * @param bool $clear
-     *
      * @return bool
      */
     abstract public function validate(bool $clear = true): bool;

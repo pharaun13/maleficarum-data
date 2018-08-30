@@ -23,6 +23,14 @@ abstract class AbstractCollection extends \Maleficarum\Data\Collection\AbstractC
     /* ------------------------------------ Abstract methods START ------------------------------------- */
 
     /**
+     * Validate data stored in this collection to check if it can be persisted in storage.
+     *
+     * @param bool $clear
+     * @return bool
+     */
+    abstract public function validate(bool $clear = true): bool;
+    
+    /**
      * Fetch the name of current shard.
      *
      * @return string
