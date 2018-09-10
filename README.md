@@ -1,6 +1,10 @@
 # Change Log
 This is the Maleficarum Data component. It carries data structures used by maleficarum projects. This only defines generic structures - no storage dependencies.
 
+## [4.0.0] - 2018-09-10
+### Changed
+- Removed getShardRoute() methods from persistable objects and replaced them with getDomainGroup() methods. Shard routing should be left to shard selectors added in Maleficarum\Storage 2.1 and 1.1.
+
 ## [3.0.0] - 2018-08-23
 ### Changed
 - Entire component modified to work with the new Maleficarum\Storage component instead of the now deprecated Maleficarum\Database.

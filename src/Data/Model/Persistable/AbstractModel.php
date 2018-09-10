@@ -48,11 +48,11 @@ abstract class AbstractModel extends \Maleficarum\Data\Model\AbstractModel {
     abstract public function validate(bool $clear = true): bool;
 
     /**
-     * Fetch the name of current shard.
+     * Fetch the name of the domain group for the entity stored in this model.
      *
      * @return string
      */
-    abstract public function getShardRoute(): string;
+    abstract public function getDomainGroup(): string;
 
     /**
      * Fetch the prefix used as a prefix for database column property names.
